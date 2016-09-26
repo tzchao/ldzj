@@ -1,0 +1,449 @@
+@@ -0,0 +1,448 @@
+//定义全局变量
+*{margin:0px;padding:0px;}
+@margin:0px;  //内外边距
+@font-size:14px;
+@color:#333333;
+@ul-no-style:none;
+@main-width:1255px;
+@logobox-width:195px;
+@header-height:87px;
+@a-color-hover:#005a9d;
+@menu-margin:0px 30px;
+@menu-backgound-hover:#f6f6f6;
+
+//定义图片动画函数
+.img_trans(@time_one,@time_two){
+    -webkit-transition: all @time_one;
+    -moz-transition: all @time_one;
+    -ms-transition: all @time_two;
+    -o-transition: all @time_one;
+    transition: all @time_one;
+}
+
+.img_trans_hover(){
+    transform:scale(1.07,1.07);
+    -webkit-transform: scale(1.07,1.07);
+    -o-transform: scale(1.07,1.07);
+    -ms-transform: scale(1.07,1.07);
+}
+
+//全局样式
+body{
+    padding:@margin;
+    margin:@margin;
+    font-family: "microsoft yahei", "黑体";
+}
+ul{
+    list-style: @ul-no-style;
+    margin:@margin;
+}
+a{
+    color:@color;
+    text-decoration: none;
+    &:hover{
+        color:@a-color-hover;
+    }
+}
+img,button {
+    border:none
+}
+
+.blank{
+    with:100%;
+   height:103px
+}
+
+//头部样式
+header{
+    border-top:3px solid @a-color-hover;
+    height:@header-height;
+    width: 100%;
+    background: #FFF;
+    .headbox{
+        width:@main-width;
+        overflow: hidden;
+        margin:0 auto;
+    }
+    @media screen and(max-width:900px) {
+        .headbox{
+            width:@main-width;
+            overflow: hidden;
+            margin:0 auto;
+        }
+    }
+    .logo{
+        width: @logobox-width;
+        height: @header-height;
+        float: left;
+    }
+    .menu{
+        width: @main-width - @logobox-width - 50px;
+        float: left;
+        ul{
+            float: right;
+            width: auto;
+            li{
+                float:left;
+                color: @color;
+                height: @header-height;
+                line-height:@header-height;
+                margin:0px 1px;
+                &:hover{
+                    background: @menu-backgound-hover;
+                }
+                a{
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    padding:@menu-margin;
+                    font-size: 18px;
+                }
+                &.current{
+                    background: @menu-backgound-hover;
+                    a{
+                        color:@a-color-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//首页头部幻灯效果
+#chinaz {
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    position:relative;
+    .banner-img {
+        position:relative;
+        margin:0px;
+        padding:0px;
+        li {
+            float:left;
+            height:auto;
+            position:relative;
+            a{
+                img {
+                    width: 100%;
+                    height:auto;
+                    display:block
+                }
+            }
+        }
+    }
+    .banner-btn{
+        a{
+            display:block;
+            line-height:72px;
+            position:absolute;
+            top:173px;
+            width:57px;
+            height:72px;
+            opacity:0.3;
+            filter:alpha(opacity=30);
+            color:rgb(255, 255, 255);
+            overflow:hidden;
+            z-index:4;
+        }
+    }
+    .prevBtn {
+        left:0;
+        background-position:0 -449px!important;
+        &:hover{
+            background-position:0 -521px!important
+        }
+    }
+    .nextBtn{
+        right:0;
+        background-position:-57px -449px!important;
+        &:hover{
+            right:0;
+            background-position:-57px -521px!important;
+        }
+    }
+    .banner-click-box{
+        width: @main-width;
+        height:100px;
+        overflow: hidden;
+        margin:0 auto;
+        padding:0px;
+        position: absolute;
+        bottom:0px;
+        left:50%;
+        margin-left:-@main-width/2;
+        z-index: 999;
+        li{
+            width: 300px;
+            height: 100px;
+            float: left;
+            margin:0px 9px;
+            cursor: pointer;
+            span{
+                background-color: rgb(51, 51, 51);
+                opacity: 0.8;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            &.begin{
+                margin-left:0px;
+            }
+            &.end{
+                margin-right:0px;
+            }
+            .txt-desc{
+                position: absolute;
+                z-index: 999;
+                margin-top:-100px;
+                color: #fff;
+                padding:2px 10px;
+                word-wrap: break-word;
+                width: 280px;
+                h4{
+                    font-size: 16px;
+                    line-height: 0px;
+                }
+                p{
+                    margin-top:-3px;
+                    line-height: 25px;
+                }
+            }
+            &:hover{
+                span{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+            &.selected{
+                span{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+        }
+    }
+}
+
+.secen{
+    width: @main-width;
+    margin:0 auto;
+    overflow: hidden;
+    .server{
+        width:760px;
+        float: left;
+        .jiansuo{
+            margin-left:30px;
+            float: left;
+            width: 464px;
+            height: 240px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+                span.fudong{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+        }
+        .chuangxin{
+            float: right;
+            width: 244px;
+            height: 240px;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+                span.fudong{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+        }
+        .qingbao{
+            position: relative;
+            float: left;
+            margin-top:15px;
+            margin-left:30px;
+            width: 464px;
+            height: 158px;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+                span.fudong{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+        }
+        .zhuanli{
+            float: right;
+            margin-top:15px;
+            width: 244px;
+            height: 158px;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover{
+                span.fudong{
+                    background-color: rgb(0, 90, 157);
+                }
+            }
+        }
+        .fudong{
+            position: absolute;
+            width: 130px;
+            height: 38px;
+            margin-top:-43px;
+            left:50%;
+            margin-left:-65px;
+            display: inline-block;
+            z-index: 214;
+        }
+        span.fudong{
+            background-color: rgb(130, 130, 130);
+            opacity: 0.702;
+        }
+        a{
+            line-height: 38px;
+            text-align: center;
+            color:#FFF;
+
+        }
+    }
+
+    .about{
+        width:470px;
+        height:410px;
+        float: right;
+        background: #f4f5fc;
+        h3{
+            font-size: 30px;
+            color: rgb(51, 51, 51);
+            line-height: 1.376;
+            border-left:7px solid @a-color-hover;
+            margin-left:28px;
+            margin-top:50px;
+            width:auto;
+            text-indent: 10px;
+
+            span{
+                font-size: 18px;
+                color: rgb(102, 102, 102);
+                -moz-transform: matrix( 1.71959542827937,0,0,1.71959542827938,0,0);
+                -webkit-transform: matrix( 1.71959542827937,0,0,1.71959542827938,0,0);
+                -ms-transform: matrix( 1.71959542827937,0,0,1.71959542827938,0,0);
+                line-height: 2.063;
+                margin-left:10px;
+            }
+        }
+        .about-info{
+            padding:0px 25px;
+            font-size: 18px;
+            color: rgb(51, 51, 51);
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.secen-area{
+    background: url(../images/a4a3991335c8668ba404768f5b5760f8.jpg) no-repeat;
+    height: 516px;
+    .mapbox{
+        width: @main-width;
+        margin:0 auto;
+        .area-map{
+            width: 560px;
+            padding-top:20px;
+            float: left;
+            cursor: pointer;
+        }
+        .area-txt{
+            width: @main-width - 560px - 10px;
+            float: right;
+            .mt{
+                margin-top:190px;
+            }
+            p{
+                font-size: 24px;
+                color: rgb(51, 51, 51);
+                line-height: 30px;
+                span{
+                    font-size: 44px;
+                    color:#4083b6;
+                    font-weight: bold;
+                    margin-left:20px;
+                }
+            }
+        }
+    }
+}
+
+.hezuo{
+    width: 100%;
+    overflow: hidden;
+    .hezuobox{
+        width: @main-width;
+        margin:0 auto;
+        overflow: hidden;
+        .txt{
+            float: left;
+            font-size: 24px;
+            color: #333333;
+            line-height: 60px;
+            text-align: center;
+            margin-top:100px;
+            margin-left:80px;
+        }
+        .imgbox{
+            width: 35%;
+            float: right;
+            text-align: right;
+            margin-right:150px;
+            cursor: pointer;
+        }
+    }
+}
+
+.foot{
+    width: 100%;
+    overflow: hidden;
+    background: #e3e5ef;
+    .footmenu{
+        width: @main-width;
+        margin:0 auto;
+        height: 70px;
+        ul{
+            width: auto;
+            text-align: center;
+            li{
+                display: inline-block;
+                height: 70px;
+                line-height: 70px;
+                a{
+                    padding:0px 30px;
+                }
+            }
+        }
+    }
+    .copyright{
+        background: @a-color-hover;
+        height: 50px;
+        overflow: hidden;
+        p{
+            width: @main-width;
+            text-align: center;
+            color: #FFF;
+            font-size: 16px;
+
+        }
+    }
+}
+
+
+
+//站内动画
+/*img hover css3效果*/
+img.trans {
+    .img_trans(0.3s, 0.1s)
+}
+img.trans:hover{
+    .img_trans_hover();
+}
